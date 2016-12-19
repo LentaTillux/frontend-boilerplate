@@ -1,5 +1,5 @@
 {
-  "name": "my-react-redux-boilerplate",
+  "name": "frontend-boilerplate",
   "version": "0.0.1",
   "description": "It's boilerplate of React + Redux using Atomic Design.",
   "private": true,
