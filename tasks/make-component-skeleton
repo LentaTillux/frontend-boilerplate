@@ -30,6 +30,7 @@ const glob = require("glob");
 const minimist = require("minimist");
 const mkdirp = require("mkdirp");
 const clear = require("cli-clear");
+const constants = require("./constants/");
 const log = require("./utils/log");
 const skeletons = require("./skeletons/");
 
@@ -66,7 +67,7 @@ if (!typeMaps.hasOwnProperty(tmpType)) {
 }
 
 const type = typeMaps[tmpType];
-const basePath = `./src/components/${type}/${name}`;
+const basePath = `${constants.basePath}/components/${type}/${name}`;
 const skeletonComponent = argv.functional ? skeletons.uiFunctionalComponent : skeletons.uiComponent;
 const files = {
   [`${basePath}/${name}.js`]     : skeletonComponent(name),

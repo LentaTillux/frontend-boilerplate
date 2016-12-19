@@ -26,6 +26,7 @@ const glob = require("glob");
 const minimist = require("minimist");
 const mkdirp = require("mkdirp");
 const clear = require("cli-clear");
+const constants = require("./constants/");
 const log = require("./utils/log");
 const skeletons = require("./skeletons/");
 
@@ -49,7 +50,7 @@ if (type !== "page" && type !== "ui") {
   help();
 }
 
-const rootPath = "./src/containers";
+const rootPath = `${constants.basePath}/containers`;
 const basePath = `${rootPath}/${type === "page" ? "pages" : type}/${name}`;
 const skeletonComponent = type === "page" ? skeletons.containerPage : skeletons.containerUI;
 const files = {
