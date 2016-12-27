@@ -18,7 +18,7 @@ const glob = require("glob");
 const minimist = require("minimist");
 const clear = require("cli-clear");
 const chalk = require("chalk");
-const constants = require("constants");
+const constants = require("./constants/");
 const log = require("./utils/log");
 const basePath = constants.basePath;
 
