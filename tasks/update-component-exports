@@ -1,17 +1,6 @@
 #!/usr/bin/env node
 /* vim: set filetype=javascript: */
 /* eslint-disable */
-
-const help = () => {
-  console.log(`Update component exports
-
-Usage:
-
-    $ ./tasks/update-component-exports
-`);
-  process.exit();
-};
-
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
@@ -21,6 +10,18 @@ const chalk = require("chalk");
 const constants = require("./constants/");
 const log = require("./utils/log");
 const basePath = constants.basePath;
+
+const help = () => {
+  console.log(`Update component exports
+
+${chalk.yellow("Usage:")}
+    $ ./tasks/update-component-exports
+
+${chalk.yellow("Options:")}
+    -h, --help        Show this message
+`);
+  process.exit();
+};
 
 const atomicDirectories = [
   "atoms",

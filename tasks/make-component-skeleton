@@ -1,38 +1,41 @@
 #!/usr/bin/env node
 /* vim: set filetype=javascript: */
 /* eslint-disable */
-
-const help = () => {
-  console.log(`Make component skeleton
-
-Usage:
-
-    $ ./tasks/make-component-skeleton <type> <component>
-
-        type      -> Type of Atomic Design parts.
-                     atoms     or a
-                     molecules or m
-                     organisms or o
-                     templates or t
-                     pages     or p
-        component -> Component name.
-
-Example:
-
-    $ ./tasks/make-component-skeleton atoms Button
-`);
-  process.exit();
-};
-
 const fs = require("fs");
 const path = require("path");
 const glob = require("glob");
 const minimist = require("minimist");
 const mkdirp = require("mkdirp");
+const chalk = require("chalk");
 const clear = require("cli-clear");
 const constants = require("./constants/");
 const log = require("./utils/log");
 const skeletons = require("./skeletons/");
+
+const help = () => {
+  console.log(`Make component skeleton
+
+${chalk.yellow("Usage:")}
+    $ ./tasks/make-component-skeleton <type> <component> [options]
+
+${chalk.yellow("Arguments:")}
+    type              Type of Atomic Design parts.
+                        - atoms      or  a
+                        - molecules  or  m
+                        - organisms  or  o
+                        - templates  or  t
+                        - pages      or  p
+    component         Component name.
+
+${chalk.yellow("Options:")}
+    -f, --functional  Functional component (stateless)
+    -h, --help        Show this message
+
+${chalk.yellow("Example:")}
+    $ ./tasks/make-component-skeleton atoms Button
+`);
+  process.exit();
+};
 
 
 clear();
