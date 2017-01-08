@@ -1,5 +1,7 @@
 Basic:
 
+This is a basic button.
+
 ```
-<Button />
+<Button>Click me</Button>
 ```

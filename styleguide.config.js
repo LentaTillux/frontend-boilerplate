@@ -1,6 +1,7 @@
 const path = require("path");
 const glob = require("glob");
-const root = "./src/js/components";
+const root = "./src/components";
+const myWebpackConfig = require("./webpack.config");
 
 const findComponents = dir => (
   () => glob.sync(path.resolve(__dirname, `${root}/${dir}/**/*.js`)).filter(module =>
@@ -30,10 +31,23 @@ module.exports = {
   updateWebpackConfig(webpackConfig) {
     const include = path.join(__dirname, "src");
 
+    webpackConfig.postcss = [...myWebpackConfig.postcss];
+
     webpackConfig.module.loaders.push(
-      { test: /\.jsx?$/, include, loaders: ["babel"] },
-      { test: /\.json$/, include, loader: "json" },
-      { test: /\.css$/, include, loaders: ["style", "css?modules"] }
+      {
+        test: /\.jsx?$/,
+        include,
+        loaders: ["babel"]
+      },
+      {
+        test: /\.css$/,
+        include,
+        loaders: [
+          "style",
+          "css?modules&importLoaders",
+          "postcss"
+        ]
+      }
     );
 
     return webpackConfig;
