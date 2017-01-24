@@ -50,6 +50,7 @@ $ tree -I node_modules -L 2
 ├── server.js               # HMR Server
 ├── src                     # Sources
 │   ├── actions            # Redux actions
+│   ├── clients            # API management (axios, fetch, ...)
 │   ├── components         # React presentational components (atoms, molecules, organisms, template, pages)
 │   ├── constants          # Application config
 │   ├── containers         # Redux container component
@@ -59,7 +60,6 @@ $ tree -I node_modules -L 2
 │   ├── reducers           # Redux reducers
 │   ├── routes.js          # Routing config
 │   ├── sagas              # redux-saga
-│   ├── services           # API management (axios, fetch, ...)
 │   ├── store              # Redux store
 │   ├── styles             # Core styles (`.css`)
 │   └── types              # Original type definition files
